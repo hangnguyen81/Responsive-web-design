@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Landing Page</title>
+        <link href="product-landing-style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Roboto&family=Lato">
+    </head>
+    <body>
+        <div id="page-wrapper">
+        <header id="header">
+            <div id="logo">
+                <img src="img/product-landing-logo.png" id="header-img" alt="Photography Pro Logo">
+            </div>
+            <div>
+                <nav id="nav-bar">
+                    <ul>
+                        <li><a class="nav-link" href="#features">Features</a></li>
+                        <li><a class="nav-link" href="#how-it-works">How it works</a></li>
+                        <li><a class="nav-link" href="#pricing">Pricing</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id = "container">
+        <section id="hero">
+            <h1>Professional and creative photography</h1>
+            <form id="form" action="https://www.freecodecamp.com/email-submit"> 
+                <input type ="email" id="email" name = "email" placeholder="Enter your email address" required/>
+                <input type = "submit" id = "submit" name = "submit" value = "Get start"/>
+            </form>
+        </section>
+        <section id="features">
+            <div><h2 ><a name="features" class='big-section'>Features</a></h2></div>
+            <div class="grid">
+                <div><img src="img/product-landing-feature1.png" class="icon"></div>
+                <div class="description"> 
+                    <h2>Portraiture</h2>
+                    <p>Icon source is from www.dreamstime.com. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate quis tortor eu pellentesque. Fusce fringilla lorem et commodo accumsan. Nunc nec urna ultricies, facilisis ex eget, pretium enim. Nullam a nisl vel felis dictum dignissim. Maecenas efficitur gravida sapien et porta.</p>
+                </div>
+            </div>
+            <div class="grid">
+                <div><img src="img/product-landing-feature2.png" class="icon"></div>
+                <div class="description"> 
+                    <h2>Product Photography</h2>
+                    <p>Icon source is from creativefabrica.com. Nunc eu molestie nisi. Nulla ornare hendrerit scelerisque. Duis in eros ut ante aliquam tempus. Phasellus condimentum ante erat, rhoncus eleifend tellus vulputate id. Fusce interdum nisi a viverra congue. </p>
+                </div>
+            </div>
+            <div class="grid">
+                <div><img src="img/product-landing-feature3.png" class="icon"></div>
+                <div class="description"> 
+                    <h2>Fast Distribution</h2>
+                    <p>Icon source is from www.vectorstock.com. hasellus rutrum, magna a dapibus porta, eros mi suscipit mi, non commodo ante ligula nec dui. Praesent et tellus justo. Vivamus faucibus at leo ac luctus. Mauris vel convallis tortor, nec elementum lorem. In hac habitasse platea dictumst</p>
+                </div>
+            </div>
+        </section>
+        <section id="how-it-works">
+            <div><h2><a name="how-it-works"  class='big-section'>How it works</a></h2></div>
+            <div>
+                <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/ixIc6CP5R-k" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>  
+            </div> 
+          </section>
+          <div><h2 ><a name="pricing" class='big-section'>Products</a> </h2></div>
+        <section id="pricing">
+ 
+            <div class="product">
+                <div class="label">Portraiture Pro</div>
+                <h3>$600</h3>
+                <ol>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                    <li>Lorem ipsum.</li>
+                </ol>
+                <button class="button-select">Select</button>
+            </div>
+            <div class="product">
+                <div class="label">Product Photography Pro</div>
+                <h3>$1000</h3>
+                <ol>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                    <li>Lorem ipsum.</li>
+                </ol>
+                <button class="button-select">Select</button>
+            </div>
+            <div class="product">
+                <div class="label">Event Photography Pro</div>
+                <h3>$2000</h3>
+                <ol>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                    <li>Lorem ipsum.</li>
+                </ol>
+                <button class="button-select">Select</button>
+            </div>
+        </section>
+        <footer>
+            <ul>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <span>Copyright 2021, Photography Pro</span>
+          </footer>
+    </div>
+    </div>
+    </body>
+</html>

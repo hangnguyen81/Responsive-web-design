@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pandas library - a python documentation </title>
+        <link href="technical-doc-style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id = "page-wrapper">
+            <nav id="navbar">
+                <header>Pandas Library</header>
+                <p id="title">Working with missing data</p>
+                <ul>
+                    <li><a class="nav-link" href="#Values_considered_missing" >Values considered missing</a></li>
+                    <li><a class="nav-link" href="#Inserting_missing_data" >Inserting missing data</a></li>
+                    <li><a class="nav-link" href="#Calculations_with_missing_data" >Calculations with missing data</a></li>
+                    <li><a class="nav-link" href="#Sum_prod_of_empties_nans" >Sum prod of empties nans</a></li>
+                    <li><a class="nav-link" href="#Replacing_generic_values" >Replacing generic values</a></li>
+                    <li><a class="nav-link" href="#Reference" >Reference</a></li>
+                </ul>
+            </nav>
+            <main id="main-doc">
+                <section class="main-section" id="Values_considered_missing">
+                    <header>Values considered missing</header>
+                    <article>
+                        <p>As data comes in many shapes and forms, pandas aims to be flexible with regard to handling missing data. While NaN is the default missing value marker for reasons of computational speed and convenience, we need to be able to easily detect this value with data of different types: floating point, integer, boolean, and general object. In many cases, however, the Python None will arise and we wish to also consider that “missing” or “not available” or “NA”.</p>
+                        <p> To make detecting missing values easier (and across different array dtypes), pandas provides the isna() and notna() functions, which are also methods on Series and DataFrame objects</p>
+                        <ul>
+                            <li>Integer dtypes and missing data: Because NaN is a float, a column of integers with even one missing values is cast to floating-point dtype (see Support for integer NA for more). pandas provides a nullable integer array, which can be used by explicitly requesting the dtype</li>
+                            <code>In [14]: pd.Series([1, 2, np.nan, 4], dtype=pd.Int64Dtype())
+                                Out[14]: 
+                                0       1
+                                1       2
+                                2    <NA>
+                                3       4
+                                dtype: Int64</code>
+                            <li>Datetimes: For datetime64[ns] types, NaT represents missing values. This is a pseudo-native sentinel value that can be represented by NumPy in a singular dtype (datetime64[ns]). pandas objects provide compatibility between NaT and NaN.</li> 
+                        </ul>
+                    </article>
+                </section>
+                <section class="main-section" id="Inserting_missing_data">
+                    <header>Inserting missing data</header>
+                    <article>
+                        <p>You can insert missing values by simply assigning to containers. The actual missing value used will be chosen based on the dtype. Likewise, datetime containers will always use NaT.</p>
+                        <code>In [24]: s = pd.Series(["a", "b", "c"])
+                            In [25]: s.loc[0] = None
+                            In [26]: s.loc[1] = np.nan
+                            In [27]: s
+                            Out[27]: 
+                            0    None
+                            1     NaN
+                            2       c
+                            dtype: object</code>
+                    </article>
+                </section>
+                <section class="main-section" id="Calculations_with_missing_data">
+                    <header>Calculations with missing data</header>
+                    <article>
+                        <p>Missing values propagate naturally through arithmetic operations between pandas objects. The descriptive statistics and computational methods discussed in the data structure overview (and listed here and here) are all written to account for missing data. For example:</p>
+                        <ul>
+                            <li>When summing data, NA (missing) values will be treated as zero</li>
+                            <li>If the data are all NA, the result will be 0.</li> 
+                            <li>Cumulative methods like cumsum() and cumprod() ignore NA values by default, but preserve them in the resulting arrays. To override this behaviour and include NA values, use skipna=False.</li> 
+                        </ul>
+                    </article>
+                </section>
+                <section class="main-section" id="Sum_prod_of_empties_nans" >
+                    <header>Sum prod of empties nans</header>
+                    <article>
+                        <p>This behavior is now standard as of v0.22.0 and is consistent with the default in numpy; previously sum/prod of all-NA or empty Series/DataFrames would return NaN. See v0.22.0 whatsnew for more.</p>
+                        <p>The sum of an empty or all-NA Series or column of a DataFrame is 0. </p>
+                        <code>In [36]: pd.Series([np.nan]).sum()
+                            Out[36]: 0.0                            
+                            In [37]: pd.Series([], dtype="float64").sum()
+                            Out[37]: 0.0</code>
+                        <p>The product of an empty or all-NA Series or column of a DataFrame is 1.</p>
+                        <code>In [38]: pd.Series([np.nan]).prod()
+                            Out[38]: 1.0                            
+                            In [39]: pd.Series([], dtype="float64").prod()
+                            Out[39]: 1.0</code>
+                    </article>
+                </section>
+                <section class="main-section" id="Replacing_generic_values" >
+                    <header>Replacing generic values</header> 
+                    <article>
+                        <p>Often times we want to replace arbitrary values with other values. replace() in Series and replace() in DataFrame provides an efficient yet flexible way to perform such replacements.</p>
+                        <p>For a Series, you can replace a single value or a list of values by another value:</p>
+                        <code>In [102]: ser = pd.Series([0.0, 1.0, 2.0, 3.0, 4.0])
+                            In [103]: ser.replace(0, 5)
+                            Out[103]: 
+                            0    5.0
+                            1    1.0
+                            2    2.0
+                            3    3.0
+                            4    4.0
+                            dtype: float64</code>
+                        <p>You can replace a list of values by a list of other values:</p>
+                        <code>In [104]: ser.replace([0, 1, 2, 3, 4], [4, 3, 2, 1, 0])
+                            Out[104]: 
+                            0    4.0
+                            1    3.0
+                            2    2.0
+                            3    1.0
+                            4    0.0
+                            dtype: float64</code>
+                    </article>
+                </section>    
+                <section class="main-section" id="Reference" >
+                    <header>Reference</header> 
+                    <article>
+                        <p>All the documentation in this page is taken from <a href="https://pandas.pydata.org/docs/">Pandas document</a></p>
+                    </article>
+                </section> 
+            </main>
+        </div>
+    </body>
+</html>
