@@ -10,3 +10,4 @@ Here are the list of pages I did in this project. I also got a certificate of co
 4. Technical Documentation Page. View [page in Codepen](https://codepen.io/hangnguyen81/full/eYWzNKp)
 5. A responsive image library. View [page in Codepen](https://codepen.io/hangnguyen81/full/ExmKGxO)
 6. Personal portfolio. View [page in Codepen](https://codepen.io/hangnguyen81/full/VwbjMVr)
+7. A single page of Finland in winter. View [page in Codepen](https://codepen.io/hangnguyen81/full/jOmyVXK)
